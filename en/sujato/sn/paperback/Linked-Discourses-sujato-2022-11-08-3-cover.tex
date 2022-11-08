@@ -1,0 +1,216 @@
+\documentclass[coverheight=9in,coverwidth=6in,spinewidth=0.791981981981982in,pagecolor=backgroundcolor,bleedwidth=3mm,marklength=0in,12pt]{bookcover}%
+%
+%
+\letnamebookcoverpart{bg spine bottom}{bg spine}[,,,7.6in]
+
+\letnamebookcoverpart{bg spine top}{bg spine}[,,,-7.6in]
+
+\newbookcovercomponenttype{center rotate}{
+\vfill
+\centering
+\rotatebox[origin=c]{-90}{#1}
+\vfill}
+
+\usepackage{setspace}
+\usepackage[12pt]{moresize}
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage[code=Code39]{makebarcode}
+\usepackage{contour}
+\usepackage{graphicx}
+\usepackage{polyglossia}
+\usepackage{tabulary}
+\usepackage{varwidth}
+\usepackage{array}
+\setlength{\tabcolsep}{1em}
+
+\setdefaultlanguage[]{english}
+\setotherlanguage[script=Latin]{sanskrit}
+
+\newcommand*{\z}[1]{\contourlength{2pt}\contour{backgroundcolor}{#1}}%
+
+\newcommand*{\spinevolumenumber}[1]{\small\centering\lowercase{\color{secondarytextcolor}{\scshape{#1}}}}%
+
+\newcommand*{\spinevolumeacronym}[1]{\footnotesize\color{secondarytextcolor}{#1}}%
+
+\newcommand*{\spinetranslationtitle}[1]{\setstretch{.7}\centering\lowercase{\scshape\LARGE{#1}}}
+
+\newcommand*{\spinecreatorname}[1]{\setstretch{.7}\centering\lowercase{\scshape\LARGE{#1}}}
+
+\newcommand*{\fronttranslationtitle}[1]{\flushleft\setstretch{3.5}\Lightfont{\fontsize{60pt}{80pt}\selectfont{#1}}}%
+
+\newcommand*{\fronttranslationsubtitle}[1]{\flushleft\normalfont\setstretch{2}{\Huge{\color{secondarytextcolor}{#1}}}\vspace{0em}}%
+
+\newcommand*{\frontbyline}[1]{\flushright\setstretch{1}{\textit{\Large{\color{secondarytextcolor}{#1}}}}\vspace{-.75em}}%
+
+\newcommand*{\frontcreatorname}[1]{\flushright\setstretch{1}{\Huge{#1}}}%
+
+\newcommand*{\frontvolumenumber}[1]{\flushleft{\lowercase{\scshape\Large{\color{secondarytextcolor}{#1}}}}\vspace{-.2em}}%
+
+\newcommand*{\frontvolumeacronym}[1]{\flushleft{\huge{#1}\vspace{0em}}}%
+
+\newcommand*{\frontvolumetranslationtitle}[1]{\vspace{-.4em}\flushleft{\setstretch{.2}{\large{#1}}\vspace{-.4em}}}%
+
+\newcommand*{\frontvolumeroottitle}[1]{\flushleft{\setstretch{.2}{\large\itshape{\color{secondarytextcolor}{#1}}}}}%
+
+\newcommand*{\backpublicationblurb}[1]{{#1}}%
+
+\newcommand*{\backvolumeblurb}[1]{\quad{#1}\bigskip}%
+
+\newcommand*{\backpublisherblurb}[1]{\begin{center}\begin{minipage}[t][]{3in}{\begin{center}{\textit{\small{\color{secondarytextcolor}{#1}}}}\end{center}}\end{minipage}\end{center}}%
+
+\newcommand*{\backpublishername}[1]{\Noligaturecaptionfont{\textsc{#1}}}%
+
+\newcommand*{\backisbn}[1]{\fcolorbox{backgroundcolor}{backgroundcolor}{\barcode{#1}}}%
+
+
+\setmainfont[Numbers=OldStyle]{Arno Pro}
+
+\newfontfamily\Lightfont[]{Arno Pro Light Display}
+
+\newfontfamily\Noligaturecaptionfont[Renderer=Basic]{Arno Pro Caption}
+
+
+% use a small amount of tracking on small caps
+\SetTracking[ spacing = {25*,166, } ]{ encoding = *, shape = sc }{ 50 }
+
+% hang quotes (requires microtype)
+\microtypesetup{
+  protrusion = true,
+  expansion  = true,
+  tracking   = true,
+  factor     = 1000,
+  patch      = all,
+  final
+}
+
+% Custom protrusion rules to allow hanging punctuation
+\SetProtrusion
+{ encoding = *}
+{
+% char   right left
+  {-} = {    , 500 },
+  % Double Quotes
+  \textquotedblleft
+      = {1000,     },
+  \textquotedblright
+      = {    , 1000},
+  \quotedblbase
+      = {1000,     },
+  % Single Quotes
+  \textquoteleft
+      = {1000,     },
+  \textquoteright
+      = {    , 1000},
+  \quotesinglbase
+      = {1000,     }
+}
+
+%GRID%
+%\usepackage{pagegrid}
+%\pagegridsetup{top-left, step=.5in}
+%GRID%
+
+\setstretch{1.05}
+
+% individual
+% red colors
+
+\providecolor{textcolor}{HTML}{FCF1ED}
+
+\providecolor{secondarytextcolor}{HTML}{DCBFB5}
+
+\providecolor{backgroundcolor}{HTML}{AF2C00}
+
+\color{textcolor}
+
+% images. position of cover image can be adjusted if necessary
+
+\newcommand*{\backlogo}[1]{\raisebox{-.5ex}{\includegraphics[height=1em]{/app/sutta_publisher/images/sclogored.png}}}
+
+\newcommand*{\spinelogo}[1]{\centering{\includegraphics[height=1.5em]{/app/sutta_publisher/images/sclogored.png}}}
+
+\newcommand*{\coverimage}[1]{\vspace*{3in}\hspace*{2in}{\includegraphics[height=8in]{/app/sutta_publisher/images/red3.png}}}%
+%
+\begin{document}%
+\pagestyle{empty}%
+\normalsize%
+\begin{bookcover}
+
+% spine
+
+\bookcovercomponent{center}{bg spine top}{
+\begin{minipage}[t][][c]{.9\spinewidth}
+
+\spinevolumenumber{Vol. 3}
+
+\spinevolumeacronym{The Group of Linked Discourses Beginning With the Aggregates}
+
+\end{minipage}
+}
+
+\bookcovercomponent{center rotate}{spine}[0in,0in,0in,0in]{
+
+\begin{tabulary}{7in}{V{4in}V{3in}}
+\spinetranslationtitle{Linked Discourses} & \spinecreatorname{Bhikkhu Sujato}
+\end{tabulary}
+
+}
+
+\bookcovercomponent{center}{bg spine bottom}{
+
+\spinelogo{}
+}
+
+% front cover
+
+\bookcovercomponent{normal}{bg front}{
+{\coverimage{}}
+}
+
+\bookcovercomponent{normal}{front}[.95in,.92in,1in,.75in]{
+
+\fronttranslationtitle{\z{Linked} \z{Discourses}}
+
+\fronttranslationsubtitle{\z{A} \z{plain} \z{translation} \z{of} \z{the} \z{\textsanskrit{Saṁyutta}} \z{\textsanskrit{Nikāya}}}
+
+\hfil{\color{secondarytextcolor}{\rule{4in}{1pt}}}\hfil
+
+\frontbyline{\z{translated} \z{by}}
+\frontcreatorname{\z{Bhikkhu} \z{Sujato}}
+
+\vfill
+
+\setstretch{1.05}
+
+\frontvolumenumber{Volume \z{3}}
+\frontvolumeacronym{\z{SN} \z{22–34}}
+\frontvolumetranslationtitle{\z{The} \z{Group} \z{of} \z{Linked} \z{Discourses} \z{Beginning} \z{With} \z{the} \z{Aggregates}}
+\frontvolumeroottitle{\z{\textsanskrit{Khandhavaggasaṁyutta}}}
+}
+
+% Text on the back cover
+\bookcovercomponent{normal}{back}[1in,.85in,1in,1in]{
+
+\backpublicationblurb{The “Linked” or “Connected” Discourses (\textsanskrit{Saṁyutta} \textsanskrit{Nikāya}) is a collection of over a thousand short discourses organized by either a theme of Dhamma or the person who is speaking. It is the primary source work for fundamental themes such the five aggregates, dependent origination, the noble eightfold path, mindfulness meditation, and the four noble truths. The radical significance of these teachings is unpacked through systematic analysis leavened with parables, anecdotes, and similes.}
+
+\backvolumeblurb{“The Group of Linked Discourses Beginning With the Aggregates” is named after the first and longest section, which deals with the core Buddhist teaching of the five aggregates. The basic idea of an “aggregate” is a set or class of phenomena that is mistaken as a permanent or abiding “self”. The Buddha, however, showed that the aggregates were suffering, and that it is only through letting go that we can become free from future suffering. Of the remaining twelve sections, three also take up the theme of the aggregates, while the remainder deal with miscellaneous secondary themes, some organized by subject, others by person.}
+
+\backpublisherblurb{The wisdom of the Buddha has been preserved in a vast ocean of ancient texts. SuttaCentral offers fresh translations of these texts in the world’s languages. Setting aside the boundaries of language and tradition, we let the Buddha speak for himself.}
+
+\vfill
+
+\begin{minipage}[b][][b]{4in}
+
+\begin{minipage}[c][][c]{2in}
+\backlogo{} \backpublishername{SuttaCentral}
+\end{minipage}\begin{minipage}[c][][c]{2in}
+\backisbn{978-1-76132-089-7}
+\end{minipage}
+
+\end{minipage}
+
+}
+
+\end{bookcover}%
+\end{document}
