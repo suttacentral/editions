@@ -1,4 +1,4 @@
-\documentclass[coverheight=9in,coverwidth=6in,spinewidth=1.3054954954954956in,pagecolor=backgroundcolor,bleedwidth=4mm,marklength=0in,12pt]{bookcover}%
+\documentclass[coverheight=9in,coverwidth=6in,spinewidth=1.3054954954954956in,pagecolor=backgroundcolor,bleedwidth=3.5mm,marklength=0in,12pt]{bookcover}%
 %
 %
 \letnamebookcoverpart{bg spine bottom}{bg spine}[,,,7.6in]
@@ -142,6 +142,12 @@
 \normalsize%
 \begin{bookcover}
 
+% background
+
+\bookcovercomponent{normal}{bg whole}{
+{\coverimage{}}
+}
+
 % spine
 
 \bookcovercomponent{center}{bg spine top}{
@@ -168,10 +174,6 @@
 }
 
 % front cover
-
-\bookcovercomponent{normal}{bg whole}{
-{\coverimage{}}
-}
 
 \bookcovercomponent{normal}{front}[.95in,.92in,1in,.75in]{
 
