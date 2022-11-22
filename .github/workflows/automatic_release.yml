@@ -9,11 +9,28 @@ permissions:
   contents: write
 
 jobs:
-  pre-release:
+  make-release:
     name: "Editions release"
     runs-on: "ubuntu-latest"
+    
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+          
+      - shell: pwsh
+        id: check_date_changed
+        run: |
+          # Check if 'last_run_date' file was changed in the latest commit
+          $diff = git diff --name-only HEAD^ HEAD
+          $SourceDiff = $diff | Where-Object { $_ -match "^last_run_date$" }
+          $HasDiff = $SourceDiff.Length -gt 0
+          
+          # Set the output for next step
+          "DATE_CHANGED=$HasDiff" >> $env:GITHUB_OUTPUT
+          
+      - if: steps.check_date_changed.outputs.DATE_CHANGED == 'True'
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
