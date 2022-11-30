@@ -1,0 +1,127 @@
+\documentclass[coverheight=9in,coverwidth=3in,pagecolor=backgroundcolor,bleedwidth=3.5mm,marklength=0in,12pt]{bookcover}%
+%
+%
+\usepackage{setspace}
+\usepackage[12pt]{moresize}
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage[code=Code39]{makebarcode}
+\usepackage{contour}
+\usepackage{graphicx}
+\usepackage{polyglossia}
+
+
+\setdefaultlanguage[]{english}
+\setotherlanguage[script=Latin]{sanskrit}
+
+\newcommand*{\z}[1]{\contourlength{2pt}\contour{backgroundcolor}{#1}}%
+
+\newcommand*{\fronttranslationtitle}[1]{\flushleft\setstretch{3.5}\Lightfont{\fontsize{60pt}{80pt}\selectfont{#1}}}%
+
+\newcommand*{\fronttranslationsubtitle}[1]{\flushleft\normalfont\setstretch{2}{\Huge{\color{secondarytextcolor}{#1}}}\vspace{0em}}%
+
+\newcommand*{\frontbyline}[1]{\flushright\setstretch{1}{\textit{\Large{\color{secondarytextcolor}{#1}}}}\vspace{-.75em}}%
+
+\newcommand*{\frontcreatorname}[1]{\flushright\setstretch{1}{\Huge{#1}}}%
+
+\newcommand*{\frontvolumenumber}[1]{\flushleft{\lowercase{\scshape\Large{\color{secondarytextcolor}{#1}}}}\\\vspace{-1.6em}}%
+
+\newcommand*{\frontvolumeacronym}[1]{\flushleft{\huge{#1}\\\vspace{-.4em}}}%
+
+\newcommand*{\frontvolumetranslationtitle}[1]{\flushleft{\setstretch{.2}{\large{#1}}\\\vspace{-.8em}}}%
+
+\newcommand*{\frontvolumeroottitle}[1]{\flushleft{\setstretch{.2}{\large\itshape{\color{secondarytextcolor}{#1}}}}}%
+
+\setmainfont[Numbers=OldStyle]{Arno Pro}
+
+\newfontfamily\Lightfont[]{Arno Pro Light Display}
+
+\newfontfamily\Noligaturecaptionfont[Renderer=Basic]{Arno Pro Caption}
+
+% use a small amount of tracking on small caps
+\SetTracking[ spacing = {25*,166, } ]{ encoding = *, shape = sc }{ 50 }
+
+% hang quotes (requires microtype)
+\microtypesetup{
+  protrusion = true,
+  expansion  = true,
+  tracking   = true,
+  factor     = 1000,
+  patch      = all,
+  final
+}
+
+% Custom protrusion rules to allow hanging punctuation
+\SetProtrusion
+{ encoding = *}
+{
+% char   right left
+  {-} = {    , 500 },
+  % Double Quotes
+  \textquotedblleft
+      = {1000,     },
+  \textquotedblright
+      = {    , 1000},
+  \quotedblbase
+      = {1000,     },
+  % Single Quotes
+  \textquoteleft
+      = {1000,     },
+  \textquoteright
+      = {    , 1000},
+  \quotesinglbase
+      = {1000,     }
+}
+
+\setstretch{1.05}
+
+% individual
+% orange colors
+
+\providecolor{textcolor}{HTML}{170F03}
+
+\providecolor{secondarytextcolor}{HTML}{684D25}
+
+\providecolor{backgroundcolor}{HTML}{E48C07}
+
+\color{textcolor}
+
+% images. position of cover image can be adjusted if necessary
+
+\newcommand*{\backlogo}[1]{\normalsize\Logofont{\color{secondarytextcolor}{#1}}}
+
+\newcommand*{\spinelogo}[1]{\centering{\Large\Logofont{\color{secondarytextcolor}{#1}}}}
+
+% block with if condition required for generating cover background image
+\newcommand*{\coverimage}[1]{\vspace*{3in}\hspace*{2in}{\includegraphics[height=8in]{/app/sutta_publisher/images/orange6.png}}}
+%
+%
+\begin{document}%
+\pagestyle{empty}%
+\normalsize%
+\begin{bookcover}
+
+\bookcovercomponent{normal}{bg whole}{
+\vspace*{3in}
+\hspace*{2in}{\coverimage{}}
+}
+
+\bookcovercomponent{normal}{whole}[.95in,.92in,1in,.75in]{
+
+\fronttranslationtitle{\z{Verses} \z{of} \z{the} \z{Senior} \z{Nuns}}
+
+\fronttranslationsubtitle{\z{A} \z{friendly} \z{translation} \z{of} \z{the} \z{\textsanskrit{Therīgāthā}}}
+
+\hfil{\color{secondarytextcolor}{\rule{4in}{1pt}}}\hfil
+
+\frontbyline{\z{translated} \z{by}}
+\frontcreatorname{\z{Bhikkhu} \z{Sujato}}
+
+\vfill
+
+\setstretch{1.05}
+
+\frontvolumeacronym{\z{Thig}}}
+
+\end{bookcover}%
+\end{document}
