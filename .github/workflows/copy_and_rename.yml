@@ -3,7 +3,7 @@ name: Check and Rename Files
 on:
   push:
     branches:
-      - 'rename-files-name'
+      - 'main'
 
 jobs:
   check-and-rename:
