@@ -29,5 +29,5 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions@github.com'
           git add .
-          git commit -m "Renamed files"
+          git commit -m "Copy and Rename files"
           git push
