@@ -1,0 +1,208 @@
+\documentclass[coverheight=9in,coverwidth=6in,spinewidth=0.7942342342342343in,pagecolor=backgroundcolor,bleedwidth=3.5mm,marklength=0in,12pt]{bookcover}%
+%
+%
+\letnamebookcoverpart{bg spine bottom}{bg spine}[,,,7.6in]
+
+\letnamebookcoverpart{bg spine top}{bg spine}[,,,-7.6in]
+
+\newbookcovercomponenttype{center rotate}{
+\vfill
+\centering
+\rotatebox[origin=c]{-90}{#1}
+\vfill}
+
+\usepackage{setspace}
+\usepackage[12pt]{moresize}
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage[code=Code39]{makebarcode}
+\usepackage{contour}
+\usepackage{graphicx}
+\usepackage{polyglossia}
+\usepackage{tabulary}
+\usepackage{varwidth}
+\usepackage{array}
+\setlength{\tabcolsep}{1em}
+
+\setdefaultlanguage[]{english}
+\setotherlanguage[script=Latin]{sanskrit}
+
+\newcommand*{\z}[1]{\contourlength{2pt}\contour{backgroundcolor}{#1}}%
+
+\newcommand*{\spinevolumenumber}[1]{\small\centering\lowercase{\color{secondarytextcolor}{\scshape{#1}}}}%
+
+\newcommand*{\spinevolumeacronym}[1]{\footnotesize\color{secondarytextcolor}{#1}}%
+
+\newcommand*{\spinetranslationtitle}[1]{\setstretch{.7}\centering\lowercase{\scshape\LARGE{#1}}}
+
+\newcommand*{\spinecreatorname}[1]{\setstretch{.7}\centering\lowercase{\scshape\LARGE{#1}}}
+
+\newcommand*{\fronttranslationtitle}[1]{\flushleft\setstretch{3.5}\Lightfont{\fontsize{60pt}{80pt}\selectfont{#1}}}%
+
+\newcommand*{\fronttranslationsubtitle}[1]{\flushleft\normalfont\setstretch{2}{\Huge{\color{secondarytextcolor}{#1}}}\vspace{0em}}%
+
+\newcommand*{\frontbyline}[1]{\flushright\setstretch{1}{\textit{\Large{\color{secondarytextcolor}{#1}}}}\vspace{-.75em}}%
+
+\newcommand*{\frontcreatorname}[1]{\flushright\setstretch{1}{\Huge{#1}}}%
+
+\newcommand*{\frontvolumenumber}[1]{\flushleft{\lowercase{\scshape\Large{\color{secondarytextcolor}{#1}}}}\vspace{-.2em}}%
+
+\newcommand*{\frontvolumeacronym}[1]{\flushleft{\huge{#1}\vspace{0em}}}%
+
+\newcommand*{\frontvolumetranslationtitle}[1]{\vspace{-.4em}\flushleft{\setstretch{.2}{\large{#1}}\vspace{-.4em}}}%
+
+\newcommand*{\frontvolumeroottitle}[1]{\flushleft{\setstretch{.2}{\large\itshape{\color{secondarytextcolor}{#1}}}}}%
+
+\newcommand*{\backpublicationblurb}[1]{{#1}}%
+
+\newcommand*{\backvolumeblurb}[1]{\quad{#1}\bigskip}%
+
+\newcommand*{\backpublisherblurb}[1]{\begin{center}\begin{minipage}[t][]{3in}{\begin{center}{\textit{\small{\color{secondarytextcolor}{#1}}}}\end{center}}\end{minipage}\end{center}}%
+
+\newcommand*{\backpublishername}[1]{\Noligaturecaptionfont{\textsc{#1}}}%
+
+\newcommand*{\backisbn}[1]{\fcolorbox{backgroundcolor}{backgroundcolor}{\barcode{#1}}}%
+
+
+\setmainfont[Numbers=OldStyle]{Arno Pro}
+
+\newfontfamily\Lightfont[]{Arno Pro Light Display}
+
+\newfontfamily\Noligaturecaptionfont[Renderer=Basic]{Arno Pro Caption}
+
+\newfontfamily\Logofont{sclogo.ttf}
+
+% use a small amount of tracking on small caps
+\SetTracking[ spacing = {25*,166, } ]{ encoding = *, shape = sc }{ 50 }
+
+% hang quotes (requires microtype)
+\microtypesetup{
+  protrusion = true,
+  expansion  = true,
+  tracking   = true,
+  factor     = 1000,
+  patch      = all,
+  final
+}
+
+% Custom protrusion rules to allow hanging punctuation
+\SetProtrusion
+{ encoding = *}
+{
+% char   right left
+  {-} = {    , 500 },
+  % Double Quotes
+  \textquotedblleft
+      = {1000,     },
+  \textquotedblright
+      = {    , 1000},
+  \quotedblbase
+      = {1000,     },
+  % Single Quotes
+  \textquoteleft
+      = {1000,     },
+  \textquoteright
+      = {    , 1000},
+  \quotesinglbase
+      = {1000,     }
+}
+
+%GRID%
+%\usepackage{pagegrid}
+%\pagegridsetup{top-left, step=.5in}
+%GRID%
+
+\setstretch{1.05}
+
+% individual
+% red colors
+
+\providecolor{textcolor}{HTML}{FCF1ED}
+
+\providecolor{secondarytextcolor}{HTML}{DCBFB5}
+
+\providecolor{backgroundcolor}{HTML}{AF2C00}
+
+\color{textcolor}
+
+% images. position of cover image can be adjusted if necessary
+
+\newcommand*{\backlogo}[1]{\normalsize\Logofont{\color{secondarytextcolor}{#1}}}
+
+\newcommand*{\spinelogo}[1]{\centering{\Large\Logofont{\color{secondarytextcolor}{#1}}}}
+
+% block with if condition required for generating cover background image
+
+% required for generating covers with flat background image
+\newcommand*{\coverimage}[1]{\vspace*{1.5in}\hspace*{2in}{\includegraphics[height=8in]{/tmp/background-image.jpg}}}
+%
+%
+\begin{document}%
+\pagestyle{empty}%
+\normalsize%
+\begin{bookcover}
+
+  % background
+  
+  \bookcovercomponent{normal}{bg whole}{
+  {\coverimage{}}
+  }
+  
+  % spine
+  
+  \bookcovercomponent{center}{bg spine top}{
+  \begin{minipage}[t][][c]{.9\spinewidth}
+  
+  \spinevolumenumber{Vol. 3}
+  
+  \spinevolumeacronym{The Group of Linked Discourses Beginning With the Aggregates }
+  
+  \end{minipage}
+  }
+  
+  \bookcovercomponent{center rotate}{spine}[0in,0in,0in,0in]{
+  
+  \begin{tabulary}{7in}{V{4in}V{3in}}
+  \spinetranslationtitle{Linked Discourses} & \spinecreatorname{Bhikkhu Sujato}
+  \end{tabulary}
+  
+  }
+  
+  \bookcovercomponent{center}{bg spine bottom}{
+  
+  \spinelogo{0}
+  }
+  
+  % front cover
+  
+  \bookcovercomponent{normal}{front}[.95in,.92in,1in,.75in]{
+  
+  \fronttranslationtitle{\z{Linked} \z{Discourses}}
+  
+  \fronttranslationsubtitle{\z{A} \z{plain} \z{translation} \z{of} \z{the} \z{\textsanskrit{Saṁyutta}} \z{\textsanskrit{Nikāya}}}
+  
+  \hfil{\color{secondarytextcolor}{\rule{4in}{1pt}}}\hfil
+  
+  \frontbyline{\z{translated} \z{by}}
+  \frontcreatorname{\z{Bhikkhu} \z{Sujato}}
+  
+  \vfill
+  
+  \setstretch{1.05}
+  
+  \frontvolumenumber{\z{Volume} \z{3}}
+  \frontvolumeacronym{\z{SN} \z{22–34}}
+  \frontvolumetranslationtitle{\z{The} \z{Group} \z{of} \z{Linked} \z{Discourses} \z{Beginning} \z{With} \z{the} \z{Aggregates} \z{}}
+  \frontvolumeroottitle{\z{\textsanskrit{Khandhavaggasaṁyutta}}}
+  }
+  
+  % Text on the back cover
+  \bookcovercomponent{center}{bg spine top}{
+  \begin{minipage}[t][][c]{.9\spinewidth}
+
+  \end{minipage}
+  }
+  
+  \end{bookcover}
+  %
+\end{document}
